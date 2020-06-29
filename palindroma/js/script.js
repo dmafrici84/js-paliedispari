@@ -14,26 +14,37 @@ btn.addEventListener("click", function () {
   parola1 = parola1.split("");
   console.log(parola1);
 
+  var parolaInvertita = parola;
+  parolaInvertita = parolaInvertita.split("");
+  parolaInvertita = parolaInvertita.reverse();
+  console.log(parolaInvertita);
 
-  var parola2 = parola;
-  parola2 = parola2.split("");
-  parola2 = parola2.reverse();
-  console.log(parola2);
+  parola1 = palindroma(parola1, parolaInvertita);
+  console.log("parola palindroma = " + parola1);
 
-  for (var i = 0; i < parola1.length; i++) {
-    if (parola1[i] == parola2[i] ) {
+  if (parola1 == true){
 
-      risultato.innerHTML = "La parola o il numero è palindromo!";
-      console.log(parola1[i] + " " +  parola2[i]);
+    risultato.innerHTML = "La parola o il numero è palindromo!";
+    console.log("La parola o il numero è palindromo!");
 
-    } else {
+  } else {
 
-        risultato.innerHTML = "La parola o il numero non è palindromo!";
-        console.log(parola1[i] + " " +  parola2[i]);
-        i = parola.length;
-
-    }
+      risultato.innerHTML = "La parola o il numero non è palindromo!";
+      console.log("La parola o il numero NON è palindromo!");
 
   }
 
 });
+
+// funzione per determinare se la parola è palindroma
+function palindroma(stringa, strigaInvertita) {
+
+  for (var i = 0; i < stringa.length; i++) {
+    if (stringa[i] == strigaInvertita[i] ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+}
